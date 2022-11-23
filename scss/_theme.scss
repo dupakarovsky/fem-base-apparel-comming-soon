@@ -1,0 +1,13 @@
+[color-scheme="light"] {
+   /* LIGHT MODE */
+   color-scheme: light;
+   --text: var(--text-light);
+   --surface: var(--surface-light);
+}
+
+[color-scheme="dark"] {
+   /* DARK MODE */
+   color-scheme: dark;
+   --text: var(--text-dark);
+   --surface: var(--surface-dark);
+}

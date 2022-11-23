@@ -1,0 +1,33 @@
+$red-1: #ce9797;
+$red-2: #f96262;
+$red-3: #f8bfbf;
+$red-4: #ee8c8c;
+$gray-1: #413a3a;
+$white-1: #ffffff;
+$white-2: #fff5f5;
+
+$text-light: #1a1919;
+$text-dark: #e6e5e5;
+$surface-light: #e6e5e5;
+$surface-dark: #363434;
+
+:root {
+   --red-1: #{$red-1};
+   --red-2: #{$red-2};
+   --gray-1: #{$gray-1};
+
+   --gradient-1: linear-gradient(135deg, #{$white-1}, #{$white-2});
+   --gradient-2: linear-gradient(135deg, #{$red-3}, #{$red-4});
+
+   --padd: 1.5rem;
+
+   /* COLOR MODE PREFERENCE: */
+   color-scheme: light;
+   /* LIGHT MODE */
+   --text-light: #{$text-light};
+   --surface-light: #{$surface-light};
+
+   /* DARK MODE */
+   --text-dark: #{$text-dark};
+   --surface-dark: #{$surface-dark};
+}

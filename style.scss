@@ -1,0 +1,218 @@
+@use "/scss/all" as *;
+
+body {
+   display: grid;
+   place-items: center;
+   //
+   font-family: "Josefin Sans";
+   font-size: 1.6rem;
+   background-color: var(--surface);
+}
+
+.hero {
+   display: grid;
+   grid-auto-flow: column;
+   grid-template-columns: minmax(55%, 1fr) auto;
+   grid-template-rows: 22.5rem 1fr;
+   justify-items: center;
+   align-items: start;
+   //
+   max-width: 144rem;
+   min-height: 80rem;
+   background-image: url("./images/bg-pattern-desktop.svg"), var(--gradient-1);
+   color: var(--red-1);
+   box-shadow: 0 1rem 5rem 0rem rgba($gray-1, 0.25);
+
+   & *::selection {
+      background-color: rgba($red-1, 0.35);
+   }
+
+   &__logo {
+      align-self: center;
+      //
+      display: grid;
+      //
+      width: clamp(55%, 50vmin, 80%);
+      transform: translateY(-100%);
+   }
+
+   &__content {
+      display: grid;
+      //
+      width: clamp(55%, 50vmin, 80%);
+
+      &--text {
+         display: grid;
+         grid-auto-rows: auto;
+         align-items: start;
+         gap: 2rem;
+      }
+   }
+
+   &__splash {
+      grid-row: 1 / span 2;
+      align-self: stretch;
+
+      picture,
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   .heading-1 {
+      line-height: 1.1;
+
+      & span:first-child {
+         font-size: clamp(3.135rem, 8vw, 6.2rem);
+         font-weight: 300;
+         text-transform: uppercase;
+         letter-spacing: 15px;
+      }
+      & span:last-child,
+      & span:nth-last-child(2) {
+         font-size: clamp(3.135rem, 7vw, 6.8rem);
+         font-weight: 600;
+         color: var(--gray-1);
+         text-transform: uppercase;
+         letter-spacing: 15px;
+      }
+   }
+
+   .form {
+      margin-top: 2rem;
+      position: relative;
+
+      input {
+         width: 100%;
+         height: 6rem;
+         color: var(--gray-1);
+         background-color: inherit;
+         padding: var(--padd) calc(2 * var(--padd));
+         border: 1px solid var(--red-1);
+         border-radius: 100vh;
+
+         &::placeholder {
+            opacity: 0.45;
+         }
+
+         &:focus-visible {
+            outline: 3px solid var(--red-2);
+         }
+      }
+      button {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         //
+         width: 25%;
+         height: 6rem;
+         border-radius: 100vh;
+         background-image: var(--gradient-2);
+         border: none;
+         color: white;
+         box-shadow: 0 1rem 2rem rgba($red-2, 0.25);
+         cursor: pointer;
+
+         position: absolute;
+         top: 0;
+         right: 0;
+
+         transition: scale 0.2s;
+
+         &:hover {
+            filter: brightness(110%);
+            box-shadow: 0 1rem 2rem rgba($red-2, 0.35);
+            scale: 1.1;
+         }
+         &:focus-visible {
+            outline: 2px solid var(--red-2);
+         }
+      }
+      label {
+         color: var(--red-2);
+         font-size: 1.6rem;
+         position: absolute;
+         bottom: -3.5rem;
+         left: 3rem;
+         visibility: hidden;
+         opacity: 0;
+
+         transition: opacity 0.2s;
+      }
+      img.icon-error,
+      img.icon-check {
+         position: absolute;
+         right: 30%;
+         top: 50%;
+         transform: translateY(-50%) scale(0);
+
+         transition: transform 0.2s cubic-bezier(0.55, 0.85, 0.65, 1.2);
+      }
+   }
+}
+
+@media only screen and (max-width: 650px) {
+   .hero {
+      grid-auto-flow: row;
+      grid-template-columns: unset;
+      grid-auto-columns: unset;
+      grid-template-rows: 8.5rem 25rem auto;
+
+      &__logo {
+         justify-items: start;
+         grid-row: 1/2;
+         //
+         width: 85%;
+         transform: translateY(0%);
+
+         img {
+            max-width: 35%;
+         }
+      }
+
+      &__splash {
+         grid-row: 2/3;
+         width: 100%;
+
+         img {
+            object-position: 50% 20%;
+         }
+      }
+
+      &__content {
+         width: 80%;
+         margin-top: 6.5rem;
+
+         .text {
+            text-align: center;
+            font-size: 1.4rem;
+         }
+      }
+
+      .heading-1 {
+         text-align: center;
+         letter-spacing: 10px;
+         & span:first-child {
+            display: block;
+            font-size: clamp(3.135rem, 7vw, 4.883rem);
+         }
+         & span:last-child,
+         & span:nth-last-child(2) {
+            display: block;
+            font-size: clamp(3.135rem, 7vw, 4.883rem);
+         }
+      }
+
+      .form {
+         input {
+            height: 4.5rem;
+         }
+         button {
+            max-width: 10rem;
+            height: 4.5rem;
+         }
+      }
+   }
+}

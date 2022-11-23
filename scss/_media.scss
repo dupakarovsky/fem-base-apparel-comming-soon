@@ -1,0 +1,16 @@
+@media only screen and (prefers-color-scheme: light) {
+   :root {
+      /* COLOR MODE PREFERENCE: */
+      color-scheme: light;
+      --text: var(--text-light);
+      --surface: var(--surface-light);
+   }
+}
+@media only screen and (prefers-color-scheme: dark) {
+   :root {
+      /* COLOR MODE PREFERENCE: */
+      color-scheme: dark;
+      --text: var(--text-dark);
+      --surface: var(--surface-dark);
+   }
+}
